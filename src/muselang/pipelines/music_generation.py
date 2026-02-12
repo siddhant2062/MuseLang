@@ -353,12 +353,8 @@ class HeartMuLaGenPipeline:
         try:
             torchaudio.save(save_path, wav_cpu, 48000)
         except ImportError:
-            # Newer torchaudio may require torchcodec; fallback to soundfile (already a dependency)
-            soundfile.write(
-                save_path,
-                wav_cpu.permute(1, 0).numpy(),
-                48000,
-            )
+            # Newer torchaudio requires torchcodec; fallback to soundfile (project dependency)
+            soundfile.write(save_path, wav_cpu.permute(1, 0).numpy(), 48000)
 
     def __call__(self, inputs: Dict[str, Any], **kwargs):
         preprocess_kwargs, forward_kwargs, postprocess_kwargs = (

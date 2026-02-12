@@ -3,14 +3,14 @@ requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "heartlib"
+name = "muselang"
 version = "0.1.0"
-description = "A Python Library."
+description = "Python library for text-to-music generation and lyrics transcription (HeartMuLa + HeartCodec)."
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "Apache-2.0"}
 authors = [
-    {name = "HeartMuLa Team", email = "heartmula.ai@gmail.com"}
+    {name = "Siddhant Kumar Srivastava", email = "siddhantsrivastava2062@gmail.com"}
 ]
 dependencies = [
     "numpy==2.0.2",
@@ -32,7 +32,7 @@ dependencies = [
     "modelscope==1.33.0",
     "soundfile"
 ]
-urls = { "homepage" = "https://heartmula.github.io/" }
+urls = { "homepage" = "https://github.com/siddhant2062/MuseLang" }
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent"

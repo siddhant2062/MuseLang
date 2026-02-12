@@ -1,4 +1,4 @@
-from heartlib import HeartTranscriptorPipeline
+from muselang import HeartTranscriptorPipeline
 import argparse
 import torch
 

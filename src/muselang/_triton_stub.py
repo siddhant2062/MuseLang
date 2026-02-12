@@ -1,6 +1,6 @@
 """
 Inject a minimal triton stub when triton is not installed (e.g. macOS).
-Enables heartlib and dependencies (transformers, torchao) to import without errors.
+Enables muselang and dependencies (transformers, torchao) to import without errors.
 Uses lazy submodules so any triton.* or triton.*.* import works (e.g. triton.compiler.compiler).
 """
 import sys
@@ -13,7 +13,7 @@ if "triton" not in sys.modules:
         from importlib.machinery import ModuleSpec
 
         _triton_dtype = type("triton_dtype", (), {})
-        _triton_lang_spec = ModuleSpec("triton.language", None, origin="(heartlib triton stub)")
+        _triton_lang_spec = ModuleSpec("triton.language", None, origin="(muselang triton stub)")
         _STUB_ORIGIN = "<triton stub: no wheel on this platform>"
 
         class _TritonLangStub(types.ModuleType):

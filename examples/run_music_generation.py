@@ -1,4 +1,4 @@
-from heartlib import HeartMuLaGenPipeline
+from muselang import HeartMuLaGenPipeline
 import argparse
 import torch
 
