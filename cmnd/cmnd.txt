@@ -1,0 +1,2 @@
+conda activate heartmuLa
+python ./examples/run_music_generation.py --model_path=./clkpt --version="3B" --mula_device mps --codec_device mps --max_audio_length_ms="10000"
