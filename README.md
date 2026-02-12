@@ -1,3 +1,9 @@
+# MuseLang
+
+Python library for text-to-music generation and lyrics transcription (HeartMuLa + HeartCodec).
+
+---
+
 ## 🧭 TODOs
 
 - ⏳ Release scripts for inference acceleration and streaming inference. The current inference speed is around RTF $\approx 1.0$.
@@ -17,12 +23,12 @@ We recommend using `python=3.10` for local deployment.
 Clone this repo and install locally.
 
 ```
-git clone https://github.com/HeartMuLa/heartlib.git
-cd heartlib
+git clone https://github.com/siddhant2062/MuseLang.git
+cd MuseLang
 pip install -e .
 ```
 
-Download our pretrained checkpoints from huggingface or modelscope using the following command:
+Download pretrained checkpoints from huggingface or modelscope using the following command:
 
 ```
 # if you are using huggingface
@@ -59,7 +65,7 @@ After downloading, the `./ckpt` subfolder should structure like this:
 
 #### Workaround for Mac Users
 
-Heartlib is primarily built for CUDA (NVIDIA) devices. On Mac (including Apple Silicon) you can run without changes.
+This library is primarily built for CUDA (NVIDIA) devices. On Mac (including Apple Silicon) you can run without changes.
 
 **Community solution (e.g. Riolutail):** A two-part approach is often suggested — (1) build Triton from source, and (2) change device targets from `cuda` to `cpu` or `mps` in `examples/run_music_generation.py` and `src/heartlib/heartcodec/modeling_heartcodec.py`. **This repo already implements part 2:** device is chosen automatically and passed through the pipeline, so you do **not** need to edit those files. HeartCodec uses `self.device` (set when the model is loaded), and the example script uses `--mula_device` / `--codec_device` (default: cuda → mps → cpu). No manual device edits or indentation changes are required.
 
@@ -73,7 +79,7 @@ Heartlib is primarily built for CUDA (NVIDIA) devices. On Mac (including Apple S
   pip install -e .
   ```
 
-  **Builds often fail on Mac** (e.g. LLVM download timeout, or CMake error: `llvm-tblgen` not found because the LLVM tarball is incomplete). If that happens, **use the no-build setup above**: device auto-select + built-in Triton stub. You do not need real Triton to run heartlib on Mac. If you retry the build, use a stable network and clear the cache first: `rm -rf ~/.triton/llvm` then run `pip install -e .` again.
+  **Builds often fail on Mac** (e.g. LLVM download timeout, or CMake error: `llvm-tblgen` not found because the LLVM tarball is incomplete). If that happens, **use the no-build setup above**: device auto-select + built-in Triton stub. You do not need real Triton to run on Mac. If you retry the build, use a stable network and clear the cache first: `rm -rf ~/.triton/llvm` then run `pip install -e .` again.
 
   To force **cpu** or **mps** explicitly, use:
 
@@ -165,8 +171,7 @@ Just another day
 Every single day
 ```
 
-Regarding tags, check this [issue](https://github.com/HeartMuLa/heartlib/issues/17) for reference.
-Our different tags are comma-separated without spaces as illustrated below:
+Tags are comma-separated without spaces as illustrated below:
 ```txt
 piano,happy,wedding,synthesizer,romantic
 ```
